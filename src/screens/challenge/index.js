@@ -1,11 +1,55 @@
-import React, { Component } from 'react';
-import { Image, Dimensions } from 'react-native';
-import { Container, Header, Content, Card, CardItem, Thumbnail, Text, Button, Icon, Left, Body, Right, Title } from 'native-base';
+import React, { Component } from "react";
+import { Image, View } from "react-native";
+import {
+  Container,
+  Header,
+  Title,
+  Button,
+  IconNB,
+  DeckSwiper,
+  Card,
+  CardItem,
+  Icon,
+  Thumbnail,
+  Text,
+  Left,
+  Right,
+  Body,
+  Footer,
+  FooterTab
+} from "native-base";
 import styles from "./styles";
-const deviceWidth = Dimensions.get("window").width;
 
-const logo = require("../../../assets/logo.png");
-const cardImage = require("../../../assets/drawer-cover.png");
+const cardOne = require("../../../assets/swiper-1.jpg");
+const cardTwo = require("../../../assets/swiper-2.jpg");
+const cardThree = require("../../../assets/swiper-3.jpg");
+const cardFour = require("../../../assets/swiper-4.jpg");
+const cards = [
+  {
+    text: "Walk The Talk",
+    name: "One",
+    image: cardOne,
+    description: "For all you lazies, we challenge you to walk the talk you have been peddling for days. Complete 10,000 steps in 48 hours and win 100 points"
+  },
+  {
+    text: "FootBall Fever",
+    name: "Two",
+    image: cardTwo,
+    description: "All you football fans, gather 10 friends and play a muddy game to win 150 points in the next 48 hours.Nominate your frinds by sharing your challenge card."
+  },
+  {
+    text: "Ultimate Cycling",
+    name: "Three",
+    image: cardThree,
+    description: "Follow your dream cardio regime by simply getting on your two wheels. We challenge you to cycle 50 km in 5 days and win 200 points. "
+  },
+  {
+    text: "March Cardio Challenge",
+    name: "Four",
+    image: cardFour,
+    description: "Follow the 30 day cardio challenge and win 300 points. Nominate your friends by sharing this challenge card."
+  }
+];
 
 class Challenge extends Component {
   render() {
@@ -18,58 +62,79 @@ class Challenge extends Component {
             </Button>
           </Left>
           <Body>
-            <Title>Challenges</Title>
+            <Title>Fit Tasks</Title>
           </Body>
           <Right />
         </Header>
-        <Content>
-          <Card style={styles.mb}>
-            <CardItem>
-              <Left>
-                <Thumbnail source={logo} />
+
+        <View style={{ flex: 1, padding: 12 }}>
+          <DeckSwiper
+            ref={mr => (this._deckSwiper = mr)}
+            dataSource={cards}
+            looping={false}
+            renderEmpty={() =>
+              <View style={{ alignSelf: "center" }}>
+                <Text>Over</Text>
+              </View>}
+            renderItem={item =>
+              <Card style={{ elevation: 3 }}>
+                <CardItem>
+                  <Left>
+                    <Thumbnail source={item.image} />
+                    <Body>
+                      <Text>
+                        {item.text}
+                      </Text>
+                      <Text note>NativeBase</Text>
+                    </Body>
+                  </Left>
+                </CardItem>
+                <CardItem >
                 <Body>
-                  <Text>NativeBase</Text>
-                  <Text note>April 15, 2016</Text>
-                </Body>
-              </Left>
-            </CardItem>
-            <CardItem>
-              <Body>
-                <Image source={cardImage} style={{
-                  alignSelf: "center",
-                    height: 150,
-                    resizeMode: "cover",
-                    width: deviceWidth / 1.18,
-                    marginVertical: 5
-                }}/>
-                <Text>
-                  NativeBase is a free and source framework that enable
-                  developers to build high-quality mobile apps using React
-                  Native iOS and Android apps with a fusion of ES6. NativeBase
-                  builds a layer on top of React Native that provides you with
-                  basic set of components for mobile application development.
-                </Text>
-              </Body>
-            </CardItem>
-            <CardItem>
-              <Left>
-                <Button transparent>
-                  <Icon active name="thumbs-up" />
-                  <Text>12 Likes</Text>
+                  <Image
+                    style={{
+                      resizeMode: "cover",
+                      width: 300,
+                      flex: 1,
+                      height: 300
+                    }}
+                    source={item.image}
+                  />
+                  <Text>{item.description}</Text>
+                  </Body>
+                </CardItem>
+                <CardItem>
+                  <Left>
+                <Button transparent textStyle={{color: '#87838B'}}>
+                  <Icon name="logo-github" />
+                  <Text>95 Already Subscriber</Text>
                 </Button>
               </Left>
-              <Body>
-                <Button transparent>
-                  <Icon active name="chatbubbles" />
-                  <Text>4 Comments</Text>
-                </Button>
-              </Body>
-              <Right>
-                <Text>11h ago</Text>
-              </Right>
-            </CardItem>
-          </Card>
-        </Content>
+                </CardItem>
+              </Card>}
+          />
+        </View>
+        
+        <Footer>
+          <FooterTab>
+            <Button vertical onPress={() => this.props.navigation.navigate('Feed')}>
+              <Icon name="apps" />
+              <Text>Feed</Text>
+            </Button>
+            <Button vertical>
+              <Icon name="camera" onPress={() => this.props.navigation.navigate('Profile')}/>
+              <Text>Profile</Text>
+            </Button>
+            <Button vertical onPress={() => this.props.navigation.navigate('Diet')}>
+              <Icon active name="navigate" />
+              <Text>Diet</Text>
+            </Button>
+            <Button vertical onPress={() => this.props.navigation.navigate('Challenge')}>
+              <Icon name="person" />
+              <Text>Fit Task</Text>
+            </Button>
+          </FooterTab>
+        </Footer>
       </Container>
     );
   }

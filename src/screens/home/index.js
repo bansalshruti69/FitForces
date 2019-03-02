@@ -5,8 +5,8 @@ import { Container, Button, H3, Text, Item,
 
 import styles from "./styles";
 
-const launchscreenBg = require("../../../assets/launchscreen-bg.png");
-const launchscreenLogo = require("../../../assets/logo-kitchen-sink.png");
+const launchscreenBg = require("../../../assets/background.png");
+const launchscreenLogo = require("../../../assets/thumbnail_image.png");
 
 class Home extends Component {
   render() {
@@ -24,13 +24,13 @@ class Home extends Component {
               backgroundColor: "transparent"
             }}
           >
-            <H3 style={styles.text}>App to showcase</H3>
+            <H3 style={styles.text}>Ready Freddy</H3>
             <View style={{ marginTop: 8 }} />
-            <H3 style={styles.text}>NativeBase components</H3>
+            <H3 style={styles.text}>It's game time</H3>
           </View>
           <View style={{ marginBottom: 80 }}>
             <Button
-              style={{ backgroundColor: "#6FAF98", alignSelf: "center" }}
+              style={{ backgroundColor: "#71C4DE", alignSelf: "center" }}
               onPress={() => this.props.navigation.navigate("Login")}
             >
               <Text>Let's Go</Text>
