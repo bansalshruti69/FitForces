@@ -143,6 +143,8 @@ import Info from './screens/info';
 import Challenge from './screens/challenge';
 import Choose from './screens/choose';
 import Profile from './screens/profile';
+import Diet from './screens/diet';
+import Food from './screens/food';
 
 const Drawer = createDrawerNavigator(
   {
@@ -164,7 +166,9 @@ const AppNavigator = createStackNavigator(
     Challenge: { screen: Challenge },
     Choose: { screen: Choose },
     Profile: { screen: Profile },
+    Diet: { screen: Diet },
     Drawer: { screen: Drawer },
+    Food: { screen: Food },
 
     Header1: { screen: Header1 },
     Header2: { screen: Header2 },
