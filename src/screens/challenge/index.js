@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Image, View } from "react-native";
+import { Image,ImageBackground, View } from "react-native";
 import {
   Container,
   Header,
@@ -19,6 +19,10 @@ import {
   FooterTab
 } from "native-base";
 import styles from "./styles";
+import { Dimensions } from 'react-native';
+let deviceWidth = Dimensions.get('window').width
+const launchscreenBg = require("../../../assets/background.png");
+
 
 const cardOne = require("../../../assets/swiper-1.jpg");
 const cardTwo = require("../../../assets/swiper-2.jpg");
@@ -122,7 +126,7 @@ class Challenge extends Component {
               <Text>Feed</Text>
             </Button>
             <Button vertical>
-              <Icon name="camera" onPress={() => this.props.navigation.navigate('Profile')}/>
+              <Icon name="person" onPress={() => this.props.navigation.navigate('Profile')}/>
               <Text>Profile</Text>
             </Button>
             <Button vertical onPress={() => this.props.navigation.navigate('Diet')}>
@@ -130,7 +134,7 @@ class Challenge extends Component {
               <Text>Diet</Text>
             </Button>
             <Button vertical onPress={() => this.props.navigation.navigate('Challenge')}>
-              <Icon name="person" />
+              <Icon name="trophy" />
               <Text>Fit Task</Text>
             </Button>
           </FooterTab>
