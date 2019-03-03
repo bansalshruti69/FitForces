@@ -17,7 +17,8 @@ import {
   Icon,
   Form,
   Text,
-  Footer, FooterTab
+  Footer, FooterTab,
+  Card, CardItem
 } from "native-base";
 import styles from "./styles";
 import { Avatar } from 'react-native-elements'
@@ -56,7 +57,7 @@ class Profile extends Component {
         <Header
           span
           noLeft
-          style={{ backgroundColor: '#01B9F5' }}
+          style={{ backgroundColor: '#0000CD' }}
           androidStatusBarColor="#01B9F5">
           <Left>
             <View style={{ flexDirection: 'row'}} >
@@ -79,7 +80,7 @@ class Profile extends Component {
               fontSize: 30,
               fontWeight: 'bold',
               color: 'white',
-             }}>Shefali Bansa</Text>
+             }}>Shefali Bansal</Text>
             </View>
             </View>
            <View>
@@ -90,7 +91,62 @@ class Profile extends Component {
         </Header>
 
         <Content>
-          
+          <Button disabled bordered rounded block style={{ margin: 30, marginTop: 210 }} >
+              <Text style={{ fontWeight: 'bold' }}>Rating: 15</Text>
+          </Button>
+          <Card style={styles.mb}>
+            <CardItem header bordered>
+              <Text>Leader Board</Text>
+            </CardItem>
+            <CardItem>
+              <Left>
+                <Text>Ashima Survarna</Text>
+              </Left>
+              <Right>
+                <Text>1</Text>
+              </Right>
+            </CardItem>
+            <CardItem>
+              <Left>
+                <Text>Aman Jain</Text>
+              </Left>
+              <Right>
+                <Text>2</Text>
+              </Right>
+            </CardItem>
+            <CardItem>
+              <Left>
+                <Text>Shubham Bansal</Text>
+              </Left>
+              <Right>
+                <Text>3</Text>
+              </Right>
+            </CardItem>
+            <CardItem>
+              <Left>
+                <Text>Anu Agarwal</Text>
+              </Left>
+              <Right>
+                <Text>4</Text>
+              </Right>
+            </CardItem>
+            <CardItem>
+              <Left>
+                <Text>Shefali Bansal</Text>
+              </Left>
+              <Right>
+                <Text>5</Text>
+              </Right>
+            </CardItem>
+            <CardItem>
+              <Left>
+                <Text>Shruti Bansal</Text>
+              </Left>
+              <Right>
+                <Text>6</Text>
+              </Right>
+            </CardItem>
+          </Card>
         </Content>
         <Footer>
           <FooterTab>
@@ -99,7 +155,7 @@ class Profile extends Component {
               <Text>Feed</Text>
             </Button>
             <Button vertical>
-              <Icon name="camera" onPress={() => this.props.navigation.navigate('Profile')}/>
+              <Icon name="person" onPress={() => this.props.navigation.navigate('Profile')}/>
               <Text>Profile</Text>
             </Button>
             <Button vertical onPress={() => this.props.navigation.navigate('Diet')}>
@@ -107,7 +163,7 @@ class Profile extends Component {
               <Text>Diet</Text>
             </Button>
             <Button vertical onPress={() => this.props.navigation.navigate('Challenge')}>
-              <Icon name="person" />
+              <Icon name="trophy" />
               <Text>Fit Task</Text>
             </Button>
           </FooterTab>
