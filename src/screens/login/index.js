@@ -22,6 +22,7 @@ import {AsyncStorage} from 'react-native';
 const launchscreenBg = require("../../../assets/background.png");
 const launchscreenLogo = require("../../../assets/thumbnail_image.png");
 
+
 class Login extends Component {
   state = {email: '', password: ''}
   _login = async() => {

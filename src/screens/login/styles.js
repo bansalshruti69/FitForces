@@ -22,5 +22,5 @@ export default {
     top: Platform.OS === "android" ? 35 : 60,
     width: 200,
     height: 200
-  },
+  }
 };
